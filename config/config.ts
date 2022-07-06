@@ -1,11 +1,11 @@
-import {defineConfig} from '@umijs/max';
-import routes from './routes';
+import { defineConfig } from '@umijs/max';
 import defaultSettings from './defaultSettings';
+import routes from './routes';
 const isProd = process.env.NODE_ENV === 'production';
 
 export default defineConfig({
     hash: true,
-    history: {type: 'hash'},
+    history: { type: 'hash' },
     publicPath: isProd ? './' : '/',
     antd: {},
     access: {},
@@ -14,9 +14,8 @@ export default defineConfig({
     request: {},
     layout: {
         locale: true,
-        siderWidth: 200,
-        ...defaultSettings
+        ...defaultSettings,
     },
     routes,
-    npmClient: 'pnpm',
-})
+    npmClient: 'npm',
+});
