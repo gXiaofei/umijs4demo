@@ -64,13 +64,5 @@ declare namespace API {
         email?: string;
     }
 
-    type LoginParams = {
-        username?: string;
-        password?: string;
-        mobile?: string;
-        captcha?: string;
-        type?: string;
-    };
-
     type definitions_0 = null;
 }

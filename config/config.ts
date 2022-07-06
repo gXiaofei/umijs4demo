@@ -1,6 +1,7 @@
 import { defineConfig } from '@umijs/max';
 import defaultSettings from './defaultSettings';
 import routes from './routes';
+import themes from './themes';
 const isProd = process.env.NODE_ENV === 'production';
 
 export default defineConfig({
@@ -17,5 +18,7 @@ export default defineConfig({
         ...defaultSettings,
     },
     routes,
+    theme: themes,
     npmClient: 'npm',
+    mfsu: false,
 });
