@@ -8,6 +8,7 @@ module.exports = {
                 'chore', // 改变构建流程、或者增加依赖库、工具等
                 'docs', // 文档修改
                 'feature', // 新特性
+                'feat',
                 'fix', // 修改问题
                 'refactor', // 代码重构, 功能不变
                 'style', // 代码格式修改
