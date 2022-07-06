@@ -41,7 +41,7 @@ export default [
             {
                 path: '/projectDueDiligence/historicalEvolution',
                 name: '历史沿革',
-                // icon: 'smile',
+                icon: 'FileTextOutlined',
                 component: './HistoricalEvolution',
             },
             {
@@ -61,7 +61,7 @@ export default [
     },
     {
         path: '/',
-        redirect: '/login',
+        redirect: '/home',
     },
     {
         path: '*',

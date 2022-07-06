@@ -6,7 +6,6 @@ import logo from '../../assets/icon.png';
 import type { HeaderProps } from './Header';
 import HeaderContent from './Header';
 import styles from './index.less';
-
 type StatusType = 'success' | 'info' | 'warning' | 'error' | undefined;
 type ContentType = string | undefined;
 
@@ -242,7 +241,7 @@ const Login: React.FC = () => {
                             />
                         </>
                     )}
-                    <Button type="primary" htmlType="submit" style={{ width: '100%' }}>
+                    <Button size="large" type="primary" htmlType="submit" style={{ width: '100%' }}>
                         {submitText()}
                     </Button>
                 </Form>

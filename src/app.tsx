@@ -3,6 +3,7 @@
 // 全局初始化数据配置，用于 Layout 用户信息和权限初始化
 // 更多信息见文档：https://next.umijs.org/docs/api/runtime-config#getinitialstate
 import logo from '@/assets/icon.png';
+import IconFont from '@/components/IconFont';
 import { SettingOutlined } from '@ant-design/icons';
 import type { Settings as LayoutSettings } from '@ant-design/pro-components';
 import type { RunTimeLayoutConfig } from '@umijs/max';
@@ -10,7 +11,6 @@ import { history, Link } from '@umijs/max';
 import { message } from 'antd';
 import defaultSettings from '../config/defaultSettings';
 import { currentUser as queryCurrentUser } from './services/ant-design-pro/api';
-
 const settingStyle = {
     display: 'flex',
     justifyContent: 'center',
@@ -57,6 +57,10 @@ export const layout: RunTimeLayoutConfig = ({ initialState, setInitialState }) =
         siderWidth: 200,
         links: [
             <Link key="setting" to="/setting" style={settingStyle}>
+                <IconFont style={{ fontSize: '16px' }} type="icon-chuanshuliebiao" />
+                <span>传输列表</span>
+            </Link>,
+            <Link key="setting" to="/setting" style={settingStyle}>
                 <SettingOutlined />
                 <span>系统设置</span>
             </Link>,
@@ -65,6 +69,7 @@ export const layout: RunTimeLayoutConfig = ({ initialState, setInitialState }) =
             history.push('/login');
             message.success('退出登录成功');
         },
+        iconfontUrl: require('@/assets/iconfont.js'),
         ...initialState?.settings,
     };
 };

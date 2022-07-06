@@ -13,7 +13,7 @@ const Settings: LayoutSettings & {
     colorWeak: false,
     title: '投行承做助手',
     pwa: false,
-    iconfontUrl: '',
+    iconfontUrl: 'iconfont.js',
     headerHeight: 56,
     splitMenus: false,
 };

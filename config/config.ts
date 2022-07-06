@@ -14,11 +14,12 @@ export default defineConfig({
     initialState: {},
     request: {},
     layout: {
-        locale: true,
+        // locale: true,
         ...defaultSettings,
     },
     routes,
     theme: themes,
+    fastRefresh: true,
     npmClient: 'npm',
     mfsu: false,
 });
