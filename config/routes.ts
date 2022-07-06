@@ -41,7 +41,7 @@ export default [
             {
                 path: '/projectDueDiligence/historicalEvolution',
                 name: '历史沿革',
-                icon: 'FileTextOutlined',
+                icon: 'icon-chuanshuliebiao',
                 component: './HistoricalEvolution',
             },
             {

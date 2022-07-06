@@ -17,6 +17,7 @@ export default defineConfig({
         // locale: true,
         ...defaultSettings,
     },
+    // layout: false,
     routes,
     theme: themes,
     fastRefresh: true,

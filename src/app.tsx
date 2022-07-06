@@ -30,7 +30,7 @@ export async function getInitialState(): Promise<{
             const msg = await queryCurrentUser();
             return msg.data;
         } catch (error) {
-            history.push(loginPath);
+            // history.push(loginPath);
         }
         return undefined;
     };
@@ -68,6 +68,9 @@ export const layout: RunTimeLayoutConfig = ({ initialState, setInitialState }) =
         logout: () => {
             history.push('/login');
             message.success('退出登录成功');
+        },
+        menuFooterRender: () => {
+            return <div>123</div>;
         },
         iconfontUrl: require('@/assets/iconfont.js'),
         ...initialState?.settings,
