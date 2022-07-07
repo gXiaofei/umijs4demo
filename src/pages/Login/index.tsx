@@ -94,7 +94,7 @@ const Login: React.FC = () => {
                     });
                     return;
                 }
-                // window.electron.ipcRenderer.sendMessage('login', [true]);
+                window.electron.ipcRenderer.sendMessage('login', [true]);
 
                 const urlParams = new URL(window.location.href).searchParams;
                 history.push(urlParams.get('redirect') || '/home');

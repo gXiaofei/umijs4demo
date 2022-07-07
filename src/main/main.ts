@@ -1,8 +1,6 @@
 /* eslint global-require: off, no-console: off*/
 
 import { app, BrowserWindow, dialog, ipcMain, shell } from 'electron';
-import log from 'electron-log';
-import { autoUpdater } from 'electron-updater';
 import path from 'path';
 import { HEIGHT, LOGIN_HEIGHT, LOGIN_WIDTH, MIN_HEIGHT, MIN_WIDTH, WIDTH } from './constants';
 import MenuBuilder from './menu';
@@ -20,13 +18,13 @@ if (process.defaultApp) {
 }
 
 // 更新
-class AppUpdater {
-    constructor() {
-        log.transports.file.level = 'info';
-        autoUpdater.logger = log;
-        autoUpdater.checkForUpdatesAndNotify();
-    }
-}
+// class AppUpdater {
+//     constructor() {
+//         log.transports.file.level = 'info';
+//         autoUpdater.logger = log;
+//         autoUpdater.checkForUpdatesAndNotify();
+//     }
+// }
 
 let mainWindow: BrowserWindow | null = null;
 
@@ -42,6 +40,7 @@ ipcMain.on('login', (event, args) => {
             mainWindow.setResizable(true);
             mainWindow.setMinimumSize(MIN_WIDTH, MIN_HEIGHT);
             mainWindow.setSize(WIDTH, HEIGHT, true);
+            mainWindow.center();
         }
     } else if (mainWindow) {
         mainWindow.setResizable(false);
@@ -79,7 +78,7 @@ const installExtensions = async () => {
 // 创建窗口
 const createWindow = async () => {
     if (process.env.NODE_ENV === 'development') {
-        // await installExtensions();
+        await installExtensions();
     }
 
     const RESOURCES_PATH = app.isPackaged
@@ -148,6 +147,7 @@ if (!gotTheLock) {
      * Add event listeners...
      */
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     app.on('second-instance', (event, commandLine, workingDirectory) => {
         // 用户正在尝试运行第二个实例，我们需要让焦点指向我们的窗口
         if (mainWindow) {

@@ -1,17 +1,39 @@
+// {
+//     "extends": "./src/.umi/tsconfig.json",
+//     "compilerOptions": {
+//         "target": "es2021",
+//         "module": "commonjs",
+//         "lib": ["dom", "es2021"],
+//         "declaration": true,
+//         "declarationMap": true,
+//         "jsx": "react-jsx",
+//         "strict": true,
+//         "pretty": true,
+//         "sourceMap": true,
+//         "baseUrl": "./src",
+//         "noUnusedLocals": true,
+//         "noUnusedParameters": true,
+//         "noImplicitReturns": true,
+//         "noFallthroughCasesInSwitch": true,
+//         "moduleResolution": "node",
+//         "esModuleInterop": true,
+//         "allowSyntheticDefaultImports": true,
+//         "resolveJsonModule": true,
+//         "allowJs": true,
+//         "outDir": "release/app/dist",
+//         "paths": {
+//             "@/*": ["src/*"],
+//             "@@/*": ["src/.umi/*"],
+//             "@umijs/max": ["/Users/gongxiaofei/Documents/code/umijs4demo/node_modules/umi"],
+//             "@umijs/max/typings": ["src/.umi/typings"]
+//         }
+//     },
+//     "exclude": ["tests", "test", "release/build", "release/app/dist", "dll"]
+// }
 {
     "extends": "./src/.umi/tsconfig.json",
     "compilerOptions": {
-        "incremental": true,
-        "target": "es2021",
-        "module": "CommonJS",
-        "lib": ["dom", "es2021"],
-        "declaration": true,
-        "declarationMap": true,
-        "pretty": true,
-        "noUnusedLocals": true,
-        "noUnusedParameters": true,
-        "noImplicitReturns": true,
-        "noFallthroughCasesInSwitch": true,
+        "module": "commonjs",
         "allowJs": true
     },
     "exclude": ["tests", "test", "release/build", "release/app/dist", "dll"]

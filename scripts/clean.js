@@ -3,7 +3,7 @@ import rimraf from 'rimraf';
 import webpackPaths from '../config/webpack.paths';
 
 const args = process.argv.slice(2);
-const commandMap: any = {
+const commandMap = {
     dist: webpackPaths.distPath,
     release: webpackPaths.releasePath,
     dll: webpackPaths.dllPath,
