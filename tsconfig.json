@@ -1,3 +1,18 @@
 {
-  "extends": "./src/.umi/tsconfig.json"
+    "extends": "./src/.umi/tsconfig.json",
+    "compilerOptions": {
+        "incremental": true,
+        "target": "es2021",
+        "module": "CommonJS",
+        "lib": ["dom", "es2021"],
+        "declaration": true,
+        "declarationMap": true,
+        "pretty": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noImplicitReturns": true,
+        "noFallthroughCasesInSwitch": true,
+        "allowJs": true
+    },
+    "exclude": ["tests", "test", "release/build", "release/app/dist", "dll"]
 }

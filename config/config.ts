@@ -8,6 +8,7 @@ export default defineConfig({
     hash: true,
     history: { type: 'hash' },
     publicPath: isProd ? './' : '/',
+    outputPath: './release/app/dist/renderer',
     antd: {},
     access: {},
     model: {},

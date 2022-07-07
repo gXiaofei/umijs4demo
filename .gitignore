@@ -1,11 +1,37 @@
-/node_modules
-/.env.local
-/.umirc.local.ts
-/config/config.local.ts
-/src/.umi
-/src/.umi-production
-/.umi
-/.umi-production
-/.umi-test
-/dist
-/.mfsu
+# Logs
+logs
+*.log
+
+# Runtime data
+pids
+*.pid
+*.seed
+
+# Coverage directory used by tools like istanbul
+coverage
+.eslintcache
+
+# OSX
+.DS_Store
+
+release/app/dist
+release/build
+dll
+
+.idea
+npm-debug.log.*
+*.css.d.ts
+*.sass.d.ts
+*.scss.d.ts
+
+node_modules
+.env.local
+.umirc.local.ts
+config/config.local.ts
+src/.umi
+src/.umi-production
+.umi
+.umi-production
+.umi-test
+dist
+.mfsu
