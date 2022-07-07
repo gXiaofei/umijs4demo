@@ -41,23 +41,83 @@ export default [
             {
                 path: '/projectDueDiligence/historicalEvolution',
                 name: '历史沿革',
-                icon: 'icon-chuanshuliebiao',
                 component: './HistoricalEvolution',
             },
             {
-                redirect: './projectDueDiligence/historicalEvolution',
+                path: '/projectDueDiligence/historicalEvolution2',
+                name: '财务分析',
+                component: './HistoricalEvolution',
+            },
+            {
+                path: '/projectDueDiligence/historicalEvolution3',
+                name: '函证',
+                component: './HistoricalEvolution',
+            },
+            {
+                path: '/projectDueDiligence/historicalEvolution4',
+                name: '银行流水',
+                component: './HistoricalEvolution',
+            },
+            {
+                path: '/projectDueDiligence/historicalEvolution5',
+                name: '处罚及诉讼',
+                component: './HistoricalEvolution',
+            },
+            {
+                path: '/projectDueDiligence/historicalEvolution6',
+                name: '关联方核查',
+                component: './HistoricalEvolution',
+            },
+            {
+                path: '/projectDueDiligence/historicalEvolution7',
+                name: '销售及采购',
+                component: './HistoricalEvolution',
+            },
+            {
+                path: '/projectDueDiligence/historicalEvolution8',
+                name: '走访核查',
+                component: './HistoricalEvolution',
+            },
+            {
+                path: '/projectDueDiligence/historicalEvolution9',
+                name: '收入结构及成本',
+                component: './HistoricalEvolution',
+            },
+            {
+                path: '/projectDueDiligence/historicalEvolution10',
+                name: '采购、存活及生产成本核查',
+                component: './HistoricalEvolution',
+            },
+            {
+                path: '/projectDueDiligence/historicalEvolution11',
+                name: '社保及五险一金',
+                component: './HistoricalEvolution',
             },
         ],
     },
     {
-        name: '权限演示',
+        name: '项目文档',
         path: '/access',
         component: './Access',
+        icon: 'CloudOutlined',
     },
     {
-        name: ' CRUD 示例',
+        name: '项目底稿',
         path: '/table',
-        component: './Table',
+        component: './HistoricalEvolution',
+        icon: 'CloudOutlined',
+    },
+    {
+        name: '知识库',
+        path: '/table2',
+        component: './HistoricalEvolution',
+        icon: 'CloudOutlined',
+    },
+    {
+        name: '尽调工具箱',
+        path: '/table3',
+        component: './HistoricalEvolution',
+        icon: 'CloudOutlined',
     },
     {
         path: '/',
