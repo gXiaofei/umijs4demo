@@ -3,9 +3,11 @@
 import { app, BrowserWindow, dialog, ipcMain, shell } from 'electron';
 import path from 'path';
 import { HEIGHT, LOGIN_HEIGHT, LOGIN_WIDTH, MIN_HEIGHT, MIN_WIDTH, WIDTH } from './constants';
+import { subscribe as subscribeStore } from './electronStore';
 import MenuBuilder from './menu';
 import showNotification from './showNotification';
 import { resolveHtmlPath } from './util';
+
 // 协议
 if (process.defaultApp) {
     if (process.argv.length >= 2) {
@@ -26,7 +28,10 @@ if (process.defaultApp) {
 //     }
 // }
 
+console.log('userData', app.getAppPath());
+
 let mainWindow: BrowserWindow | null = null;
+let unsubscribeStore: any = null;
 
 ipcMain.on('ipc-example', async (event, arg) => {
     const msgTemplate = (pingPong: string) => `IPC test: ${pingPong}`;
@@ -120,8 +125,12 @@ const createWindow = async () => {
         }
     });
 
+    unsubscribeStore = subscribeStore(mainWindow);
+
     mainWindow.on('closed', () => {
+        console.log('closed');
         mainWindow = null;
+        unsubscribeStore();
     });
 
     const menuBuilder = new MenuBuilder(mainWindow);

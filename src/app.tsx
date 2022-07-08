@@ -30,7 +30,7 @@ export async function getInitialState(): Promise<{
             const msg = await queryCurrentUser();
             return msg.data;
         } catch (error) {
-            history.push(loginPath);
+            // history.push(loginPath);
         }
         return undefined;
     };
@@ -51,6 +51,7 @@ export async function getInitialState(): Promise<{
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const layout: RunTimeLayoutConfig = ({ initialState, setInitialState }) => {
+    console.log('app layout', initialState);
     return {
         logo: logo,
         layout: 'mix',
