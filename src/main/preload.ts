@@ -5,7 +5,7 @@ export type Channels = 'ipc-example';
 
 contextBridge.exposeInMainWorld('electron', {
     ipcRenderer: {
-        async invoke(channel: string, args: unknown[]) {
+        async invoke(channel: string, args?: unknown[]) {
             const result = await ipcRenderer.invoke(channel, args);
             return result;
         },

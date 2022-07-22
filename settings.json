@@ -1,5 +1,11 @@
 {
-    "darkMode": "system",
-    "name": "ss",
-    "age": 15
+	"darkMode": "dark",
+	"currentDarkMode": "dark",
+	"autoUpdater": [
+		true
+	],
+	"notice": [
+		"transmission",
+		"system"
+	]
 }

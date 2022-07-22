@@ -19,10 +19,13 @@ const settingStyle = {
 // const isDev = process.env.NODE_ENV === 'development';
 const loginPath = '/login';
 
+type themeType = 'dark' | 'light';
+
 export async function getInitialState(): Promise<{
     settings?: Partial<LayoutSettings>;
     currentUser?: API.CurrentUser;
     loading?: boolean;
+    nativeTheme?: themeType;
     fetchUserInfo?: () => Promise<API.CurrentUser | undefined>;
 }> {
     const fetchUserInfo = async () => {
@@ -34,34 +37,48 @@ export async function getInitialState(): Promise<{
         }
         return undefined;
     };
+
+    const nativeTheme = await window.electron.ipcRenderer.invoke('getStore', ['currentDarkMode']);
+
     // 如果不是登录页面，执行
     if (history.location.pathname !== loginPath) {
         const currentUser = await fetchUserInfo();
         return {
             fetchUserInfo,
             currentUser,
+            nativeTheme,
             settings: defaultSettings,
         };
     }
     return {
         fetchUserInfo,
+        nativeTheme,
         settings: defaultSettings,
     };
 }
-
+let unsubscribeStore: any = null;
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const layout: RunTimeLayoutConfig = ({ initialState, setInitialState }) => {
     console.log('app layout', initialState);
+
+    if (typeof unsubscribeStore === 'function') unsubscribeStore();
+
+    unsubscribeStore = window.electron.ipcRenderer.on('nativeThemeChange', (nativeTheme) => {
+        console.log(123123, nativeTheme);
+        const theme = nativeTheme as any;
+        setInitialState({ ...initialState, nativeTheme: theme });
+    });
+
     return {
         logo: logo,
         layout: 'mix',
         siderWidth: 200,
         links: [
-            <Link key="setting" to="/setting" style={settingStyle}>
+            <Link key="setting" to="/setting">
                 <IconFont style={{ fontSize: '16px' }} type="icon-chuanshuliebiao" />
                 <span>传输列表</span>
             </Link>,
-            <Link key="setting" to="/setting" style={settingStyle}>
+            <Link key="setting" to="/setting">
                 <SettingOutlined />
                 <span>系统设置</span>
             </Link>,
@@ -77,3 +94,13 @@ export const layout: RunTimeLayoutConfig = ({ initialState, setInitialState }) =
         ...initialState?.settings,
     };
 };
+
+export function onRouteChange({ location, clientRoutes, routes, action }) {
+    console.log(location);
+    const { pathname } = location;
+    if (pathname === '/login') {
+        window.electron.ipcRenderer.sendMessage('login', [true]);
+    } else {
+        window.electron.ipcRenderer.sendMessage('login', [false]);
+    }
+}

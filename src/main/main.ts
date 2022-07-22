@@ -42,15 +42,19 @@ ipcMain.on('ipc-example', async (event, arg) => {
 ipcMain.on('login', (event, args) => {
     if (args[0] === true) {
         if (mainWindow) {
+            if (mainWindow) {
+                mainWindow.setResizable(false);
+                mainWindow.setMinimumSize(LOGIN_WIDTH, LOGIN_HEIGHT);
+                mainWindow.setSize(LOGIN_WIDTH, LOGIN_HEIGHT, true);
+            }
+        }
+    } else {
+        if (mainWindow) {
             mainWindow.setResizable(true);
             mainWindow.setMinimumSize(MIN_WIDTH, MIN_HEIGHT);
             mainWindow.setSize(WIDTH, HEIGHT, true);
             mainWindow.center();
         }
-    } else if (mainWindow) {
-        mainWindow.setResizable(false);
-        mainWindow.setMinimumSize(LOGIN_WIDTH, LOGIN_HEIGHT);
-        mainWindow.setSize(LOGIN_WIDTH, LOGIN_HEIGHT, true);
     }
 });
 
