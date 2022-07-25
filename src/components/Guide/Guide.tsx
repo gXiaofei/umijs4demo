@@ -8,7 +8,7 @@ const Guide: React.FC = () => {
         <Layout>
             <Row>
                 <Typography.Title level={3} className={styles.title}>
-                    欢迎使用 <strong>投行承做助手</strong> ！
+                    欢迎使用 <strong>投行承做助手</strong> ！<p>promise</p>
                 </Typography.Title>
             </Row>
         </Layout>

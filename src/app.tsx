@@ -18,6 +18,7 @@ const settingStyle = {
 };
 // const isDev = process.env.NODE_ENV === 'development';
 const loginPath = '/login';
+let afterRoute = '';
 
 type themeType = 'dark' | 'light';
 
@@ -87,20 +88,25 @@ export const layout: RunTimeLayoutConfig = ({ initialState, setInitialState }) =
             history.push('/login');
             message.success('退出登录成功');
         },
-        menuFooterRender: () => {
-            return <div>123</div>;
-        },
         iconfontUrl: require('@/assets/iconfont.js'),
         ...initialState?.settings,
     };
 };
 
 export function onRouteChange({ location, clientRoutes, routes, action }) {
-    console.log(location);
+    console.log(111, location);
+    console.log(222, clientRoutes);
+    console.log(333, routes);
+    console.log(444, action);
+    console.log(555, afterRoute);
+
     const { pathname } = location;
     if (pathname === '/login') {
         window.electron.ipcRenderer.sendMessage('login', [true]);
     } else {
-        window.electron.ipcRenderer.sendMessage('login', [false]);
+        if (afterRoute === '/login') {
+            window.electron.ipcRenderer.sendMessage('login', [false]);
+        }
     }
+    afterRoute = pathname;
 }

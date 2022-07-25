@@ -3,10 +3,8 @@ import { Settings as LayoutSettings } from '@ant-design/pro-components';
 const Settings: LayoutSettings & {
     pwa?: boolean;
 } = {
-    navTheme: 'dark',
-    headerTheme: 'dark',
     // 拂晓蓝
-    primaryColor: '#1890ff',
+    primaryColor: '#C50808',
     contentWidth: 'Fluid',
     fixedHeader: true,
     fixSiderbar: true,

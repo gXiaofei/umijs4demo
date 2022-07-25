@@ -53,7 +53,6 @@ ipcMain.on('login', (event, args) => {
             mainWindow.setResizable(true);
             mainWindow.setMinimumSize(MIN_WIDTH, MIN_HEIGHT);
             mainWindow.setSize(WIDTH, HEIGHT, true);
-            mainWindow.center();
         }
     }
 });

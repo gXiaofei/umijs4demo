@@ -1,0 +1,73 @@
+.clearfix::before,
+.clearfix::after {
+    display: table;
+    clear: both;
+    content: '';
+}
+
+#root,
+.main,
+body,
+html {
+    width: 100%;
+    height: 100%;
+    color: #333;
+    font-family: 'Helvetica Neue', 'PingFang SC-Regular', 'Microsoft YaHei', Helvetica, Arial,
+        'Hiragino Sans GB', sans-serif;
+}
+
+/*清除默认样式*/
+html,
+body,
+ul,
+li,
+ol,
+dl,
+dd,
+dt,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+form,
+fieldset,
+legend,
+img,
+input {
+    margin: 0;
+    padding: 0;
+}
+
+ul,
+li,
+ol {
+    list-style: none;
+}
+
+select,
+input {
+    vertical-align: middle;
+}
+
+textarea {
+    resize: none;
+}
+
+/*防止拖动*/
+img {
+    vertical-align: middle;
+    border: 0;
+}
+
+/*  去掉图片低测默认的3像素空白缝隙，或者用display：block也可以*/
+table {
+    border-collapse: collapse;
+}
+
+/*  如果相邻则共用一个边框*/
+a {
+    text-decoration: none;
+}

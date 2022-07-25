@@ -1,11 +1,10 @@
 {
-	"darkMode": "dark",
-	"currentDarkMode": "dark",
+	"darkMode": "light",
+	"currentDarkMode": "light",
 	"autoUpdater": [
 		true
 	],
 	"notice": [
-		"transmission",
-		"system"
+		"transmission"
 	]
 }
